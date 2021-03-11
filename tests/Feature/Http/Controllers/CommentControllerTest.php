@@ -23,7 +23,7 @@ class CommentControllerTest extends TestCase
             ->getJson(route('comments.index'))
             ->assertJsonCount(5);
 
-        $this->assertCount(5, Comment:all());
+        $this->assertCount(5, Comment::all());
     }
 
     /** @test */
@@ -66,7 +66,7 @@ class CommentControllerTest extends TestCase
                 'body' => $request['body'],
             ]);
 
-        $this->assertEquals($request['body'], $comment->refresh()->name);
+        $this->assertEquals($request['body'], $comment->refresh()->body);
     }
 
     /** @test */
