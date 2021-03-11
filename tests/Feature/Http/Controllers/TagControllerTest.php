@@ -47,7 +47,7 @@ class CommentControllerTest extends TestCase
             ->postJson(route('comments.store'), $request)
             ->assertJsonFragment([
                 'id'   => 1,
-                'body' => $request['name']
+                'body' => $request['name'],
             ]);
 
         $this->assertCount(1, Comment::all());

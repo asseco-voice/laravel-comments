@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
- * Class Comment
- * @package Asseco\Comment\Models
+ * Class Comment.
  */
 class Comment extends Model
 {

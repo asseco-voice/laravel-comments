@@ -1,7 +1,7 @@
 <?php
 
-
 namespace Asseco\Comments;
+
 use Illuminate\Support\ServiceProvider;
 
 class CommentsServiceProvider extends ServiceProvider
