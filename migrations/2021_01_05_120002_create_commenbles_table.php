@@ -1,24 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateCommenblesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('created_by')->nullable();
+        Schema::create('commentables', function (Blueprint $table) {
+            $table->integer('tag_id')->unsigned();
             $table->morphs('commentable');
-
-            $table->longText('body');
             $table->timestamps();
         });
     }
@@ -28,8 +27,8 @@ class CreateCommentsTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('commentables');
     }
 }
