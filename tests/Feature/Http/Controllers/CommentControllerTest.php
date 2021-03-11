@@ -6,7 +6,6 @@ namespace Asseco\Comments\Tests\Feature\Http\Controllers;
 
 use Asseco\Comments\App\Models\Comment;
 use Asseco\Comments\Tests\TestCase;
-use Illuminate\Support\Str;
 
 class CommentControllerTest extends TestCase
 {
@@ -35,7 +34,7 @@ class CommentControllerTest extends TestCase
             ->postJson(route('comments.store'), $request)
             ->assertJsonFragment([
                 'id'   => 1,
-                'body' => $request['body']
+                'body' => $request['body'],
             ]);
 
         $this->assertCount(1, Comment::all());
