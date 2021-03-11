@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Asseco\Comments\App;
+namespace Asseco\Comments\App\Models;
 
 use Asseco\Tags\Database\Factories\TagFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
