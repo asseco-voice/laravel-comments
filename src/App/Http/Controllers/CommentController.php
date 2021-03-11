@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Asseco\Comments\App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Asseco\Comments\App\Http\Requests\CommentRequest;
 use Asseco\Comments\App\Models\Comment;
 use Exception;
 use Illuminate\Http\JsonResponse;

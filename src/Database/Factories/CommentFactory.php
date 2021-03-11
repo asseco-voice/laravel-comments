@@ -22,7 +22,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'body'  => $this->faker->sentence(),
+            'body'             => $this->faker->sentence(),
+            'commentable_type' => 'App\\Random\\' . ucfirst($this->faker->word),
+            'commentable_id'   => $this->faker->randomNumber(),
         ];
     }
 }
