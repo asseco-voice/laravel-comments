@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Asseco\Comments\App;
 
-use Illuminate\Database\Eloquent\Builder;
+use Asseco\Tags\Database\Factories\TagFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Asseco\Comments\App\Traits\Commentable;
 
 /**
  * Class Comment
@@ -15,13 +15,15 @@ use Asseco\Comments\App\Traits\Commentable;
  */
 class Comment extends Model
 {
-    use Commentable;
+    use HasFactory;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    /**
-     * Get all of the models that own comments.
-     */
+    protected static function newFactory()
+    {
+        return CommentFactory::new();
+    }
+
     public function commentable(): MorphTo
     {
         return $this->morphTo();

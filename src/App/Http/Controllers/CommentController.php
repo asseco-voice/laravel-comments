@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace Asseco\Comments\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Asseco\Comment\App\Comment;
+use Asseco\Comments\App\Models\Comment;
 use Exception;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class CommentController extends Controller
 {
