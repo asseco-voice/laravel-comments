@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Asseco\Comments\App;
 
-use Illuminate\Database\Eloquent\Builder;
+use Asseco\Comments\App\Traits\Commentable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Asseco\Comments\App\Traits\Commentable;
 
 /**
- * Class Comment
- * @package Asseco\Comment\Models
+ * Class Comment.
  */
 class Comment extends Model
 {
