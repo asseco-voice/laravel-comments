@@ -17,50 +17,21 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
-     * @param string  $modelName
-     *
-     * @throws Exception
-     *
      * @return JsonResponse
      */
-    public function index(Request $request, string $modelName): JsonResponse
+    public function index(): JsonResponse
     {
-        $model = $this->extractModelClass($modelName);
-
-        return response()->json($model::search($request->all())->get());
+        return response()->json(Comment::all());
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param Comment $comment
-     * @return JsonResponse
-     */
-    public function update(Request $request, string $modelName): JsonResponse
-    {
-        $model = $this->extractModelClass($modelName);
-        $comment = $model::search($request->except('update'));
-
-        if (!$request->has('update')) {
-            throw new Exception('Missing update parameters');
-        }
-
-        $comment->update($request->update);
-
-        return response()->json($comment->get());
-    }
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @param integer $ticketId
+     * @param CommentRequest $request
      * @return JsonResponse
      */
-    public function store(Request $request, int $ticketId): JsonResponse
+    public function store(CommentRequest $request): JsonResponse
     {
-
         $comment = Comment::query()->create($request->all());
 
         return response()->json($comment);
@@ -78,47 +49,30 @@ class CommentController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param CommentRequest $request
+     * @param Comment $comment
+     * @return JsonResponse
+     */
+    public function update(CommentRequest $request, Comment $comment): JsonResponse
+    {
+        $comment->update($request->validated());
+
+        return response()->json($comment->refresh());
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param Comment $comment
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(Request $request, string $modelName): JsonResponse
+    public function destroy(Comment $comment): JsonResponse
     {
-        $model = $this->extractModelClass($modelName);
-        $isDeleted = $model::comment($request->all())->delete();
+        $isDeleted = $comment->delete();
 
         return response()->json($isDeleted ? 'true' : 'false');
     }
-
-    /**
-     * @param string $modelName
-     *
-     * @throws Exception
-     *
-     * @return Model
-     */
-    protected function extractModelClass(string $modelName): Model
-    {
-        $mapping = config('asseco-comment.model_mapping');
-
-        if (array_key_exists($modelName, $mapping)) {
-            return new $mapping[$modelName]();
-        }
-
-        $namespaces = config('asseco-comment.models_namespaces');
-
-        $formattedModelName = Str::studly(Str::singular($modelName));
-
-        foreach ($namespaces as $namespace) {
-            $model = "$namespace\\$formattedModelName";
-            if (class_exists($model)) {
-                return new $model();
-            }
-        }
-
-        throw new Exception("Model $model does not exist");
-    }
 }
-

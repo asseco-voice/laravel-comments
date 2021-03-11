@@ -4,7 +4,7 @@
 namespace Asseco\Comments;
 use Illuminate\Support\ServiceProvider;
 
-class CommentServiceProvider extends ServiceProvider
+class CommentsServiceProvider extends ServiceProvider
 {
     /**
      * Register the application services.

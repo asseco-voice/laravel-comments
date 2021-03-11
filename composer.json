@@ -1,34 +1,40 @@
 {
-    "name": "asseco-voice/laravel-comments",
-    "description": "Laravel comment system",
+  "name": "asseco-voice/laravel-comments",
+  "description": "Laravel comment system",
+  "type": "library",
     "keywords": [
         "php",
         "laravel",
         "comments",
         "microservices",
         "database"
-    ],
-    "license": "MIT",
-    "require": {
-        "php": "^7.4",
-        "laravel/framework": "^8.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "mockery/mockery": "^1.3.1"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "Asseco\\Comments\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Asseco\\Comments\\CommentServiceProvider"
-            ]
-        }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "laravel/framework": "^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.4",
+    "mockery/mockery": "^1.3.1",
+    "fakerphp/faker": "^1.9.1",
+    "orchestra/testbench": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Asseco\\Comments\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Asseco\\Comments\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Asseco\\Comments\\CommentsServiceProvider"
+      ]
+    }
+  }
 }

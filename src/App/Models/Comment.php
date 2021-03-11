@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Asseco\Comment\App;
+namespace Asseco\Comments\App;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Asseco\Comment\App\Traits\Commentable;
+use Asseco\Comments\App\Traits\Commentable;
 
 /**
  * Class Comment
