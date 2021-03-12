@@ -29,7 +29,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request): JsonResponse
     {
-        $comment = Comment::query()->create($request->all());
+        $comment = Comment::query()->create($request->validated());
 
         return response()->json($comment);
     }
