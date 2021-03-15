@@ -1,21 +1,20 @@
-# Asseco Comment
+<p align="center"><a href="https://see.asseco.com" target="_blank"><img src="https://github.com/asseco-voice/art/blob/main/evil_logo.png" width="500"></a></p>
 
-Purpose of this repository is to provide add comment any Laravel model. 
+# Laravel comments
+
+Purpose of this repository is to provide adding comments to any Laravel model. 
 
 ## Installation
 
-Require the package with ``composer require asseco-voice/laravel-comment``.
+Require the package with ``composer require asseco-voice/laravel-comments``.
 Service provider will be registered automatically.
 
-
-Publish configurations and migrations, then migrate comments table.
+Publish the configuration and migrations, then migrate comments table.
 
 ``` bash
 $ php artisan vendor:publish
 $ php artisan migrate
 ```
-
-
 
 Add `Commentable` trait to your commentable model(s).
 
