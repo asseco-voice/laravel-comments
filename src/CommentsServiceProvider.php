@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Asseco\Comments;
 
 use Illuminate\Support\ServiceProvider;
@@ -11,7 +13,6 @@ class CommentsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/asseco-comments.php', 'asseco-comments');
         $this->loadMigrationsFrom(__DIR__ . '/../migrations');
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
     }
@@ -21,6 +22,6 @@ class CommentsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->publishes([__DIR__ . '/../config/asseco-comments.php' => config_path('asseco-comments.php')]);
+        //
     }
 }

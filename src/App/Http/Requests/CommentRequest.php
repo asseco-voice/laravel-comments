@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Asseco\Comments\App\Http\Requests;
 
 use Illuminate\Contracts\Validation\Validator;
