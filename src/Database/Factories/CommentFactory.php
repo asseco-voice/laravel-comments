@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Asseco\Comments\Database\Factories;
 
 use Asseco\Comments\App\Models\Comment;
