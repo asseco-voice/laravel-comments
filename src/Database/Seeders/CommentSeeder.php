@@ -7,7 +7,7 @@ namespace Asseco\Comments\Database\Seeders;
 use Asseco\Comments\App\Models\Comment;
 use Illuminate\Database\Seeder;
 
-class CommentsSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     public function run(): void
     {
