@@ -15,7 +15,8 @@ class CommentController extends Controller
 
     public function __construct()
     {
-        $model = config('asseco-attachments.attachment_model');
+        $model = config('asseco-comments.comment_model');
+
         $this->comment = new $model;
     }
 
