@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Asseco\Comments\App\Traits;
 
-use Asseco\Comments\App\Models\Comment;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait Commentable
