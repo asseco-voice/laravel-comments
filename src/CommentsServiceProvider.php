@@ -13,8 +13,12 @@ class CommentsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../migrations');
+        $this->mergeConfigFrom(__DIR__ . '/../config/asseco-comments.php', 'asseco-comments');
         $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+
+        if (config('asseco-comments.runs_migrations')) {
+            $this->loadMigrationsFrom(__DIR__ . '/../migrations');
+        }
     }
 
     /**
@@ -22,6 +26,12 @@ class CommentsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->publishes([
+            __DIR__ . '/../migrations' => database_path('migrations'),
+        ], 'asseco-comments');
+
+        $this->publishes([
+            __DIR__ . '/../config/asseco-comments.php' => config_path('asseco-comments.php'),
+        ], 'asseco-comments');
     }
 }

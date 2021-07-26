@@ -11,6 +11,14 @@ use Illuminate\Http\JsonResponse;
 
 class CommentController extends Controller
 {
+    public Comment $comment;
+
+    public function __construct()
+    {
+        $model = config('asseco-attachments.attachment_model');
+        $this->comment = new $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +26,7 @@ class CommentController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json(Comment::all());
+        return response()->json($this->comment::all());
     }
 
     /**
@@ -29,7 +37,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request): JsonResponse
     {
-        $comment = Comment::query()->create($request->validated());
+        $comment = $this->comment::query()->create($request->validated());
 
         return response()->json($comment);
     }
