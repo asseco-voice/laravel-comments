@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 namespace Asseco\Comments\Database\Factories;
 
-use Asseco\Comments\App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Comment::class;
+    public function modelName()
+    {
+        return config('asseco-comments.models.comment');
+    }
 
     /**
      * Define the model's default state.
