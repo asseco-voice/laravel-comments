@@ -15,9 +15,7 @@ class CommentController extends Controller
 
     public function __construct()
     {
-        $model = config('asseco-comments.comment_model');
-
-        $this->comment = new $model;
+        $this->comment = $model;
     }
 
     /**

@@ -1,16 +1,35 @@
 <?php
 
+use Asseco\BlueprintAudit\App\MigrationMethodPicker;
 use Asseco\Comments\App\Models\Comment;
 
 return [
-    /**
-     * Model which will be bound to the app.
-     */
-    'comment_model'   => Comment::class,
 
     /**
-     * Should the package run the migrations. Set to false if you're publishing
-     * and changing default migrations.
+     * Model bindings
      */
-    'runs_migrations' => true,
+    'models' => [
+        'attachment' => Comment::class,
+    ],
+
+    'migrations' => [
+
+        /**
+         * UUIDs as primary keys.
+         */
+        'uuid'       => false,
+
+        /**
+         * Timestamp types.
+         *
+         * @see https://github.com/asseco-voice/laravel-common/blob/master/config/asseco-common.php
+         */
+        'timestamps' => MigrationMethodPicker::PLAIN,
+
+        /**
+         * Should the package run the migrations. Set to false if you're publishing
+         * and changing default migrations.
+         */
+        'run'        => true,
+    ],
 ];
