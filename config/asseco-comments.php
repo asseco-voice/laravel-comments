@@ -9,7 +9,7 @@ return [
      * Model bindings
      */
     'models' => [
-        'attachment' => Comment::class,
+        'comment' => Comment::class,
     ],
 
     'migrations' => [
