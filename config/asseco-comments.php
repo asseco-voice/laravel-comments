@@ -6,7 +6,7 @@ use Asseco\Comments\App\Models\Comment;
 return [
 
     /**
-     * Model bindings
+     * Model bindings.
      */
     'models' => [
         'attachment' => Comment::class,
