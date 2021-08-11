@@ -28,3 +28,10 @@ class Product extends Model implements Commentable
 Standard CRUD endpoints are exposed for comment administration, however if
 you'd like a dedicated controller to manage CRUD actions on a specific model
 you need to manually create it.
+
+
+# Extending the package
+
+Publishing the configuration will enable you to change package models as
+well as controlling how migrations behave. If extending the model, make sure
+you're extending the original model in your implementation.
