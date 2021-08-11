@@ -10,7 +10,7 @@ trait Commentable
 {
     public function comments(): MorphMany
     {
-        $model = config('asseco-comments.comment_model');
+        $model = config('asseco-comments.models.comment');
 
         return $this->morphMany($model, 'commentable');
     }

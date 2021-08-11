@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace Asseco\Comments\Database\Seeders;
 
-use Asseco\Comments\App\Models\Comment;
+use Asseco\Comments\App\Contracts\Comment;
 use Illuminate\Database\Seeder;
 
 class CommentSeeder extends Seeder
 {
     public function run(): void
     {
-        Comment::factory()->count(100)->create();
+        /** @var Comment $comment */
+        $comment = app(Comment::class);
+
+        $comment::factory()->count(100)->create();
     }
 }
