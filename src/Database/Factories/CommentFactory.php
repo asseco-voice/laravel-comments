@@ -20,10 +20,18 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
-        return [
+        $data = [
             'body'             => $this->faker->sentence(),
             'commentable_type' => 'App\\Random\\' . ucfirst($this->faker->word),
             'commentable_id'   => $this->faker->randomNumber(),
         ];
+
+        if(config('asseco-comments.migrations.uuid')){
+            $data = array_merge($data, [
+                'commentable_id'   => $this->faker->uuid(),
+            ]);
+        }
+
+        return $data;
     }
 }
