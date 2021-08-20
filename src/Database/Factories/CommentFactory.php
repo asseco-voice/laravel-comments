@@ -26,7 +26,7 @@ class CommentFactory extends Factory
             'commentable_id'   => $this->faker->randomNumber(),
         ];
 
-        if(config('asseco-comments.migrations.uuid')){
+        if (config('asseco-comments.migrations.uuid')) {
             $data = array_merge($data, [
                 'commentable_id'   => $this->faker->uuid(),
             ]);
