@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Asseco\Comments;
 
 use Asseco\Comments\App\Contracts\Comment;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class CommentsServiceProvider extends ServiceProvider
@@ -36,5 +37,7 @@ class CommentsServiceProvider extends ServiceProvider
         ], 'asseco-comments');
 
         $this->app->bind(Comment::class, config('asseco-comments.models.comment'));
+
+        Route::model('comment', get_class(app(Comment::class)));
     }
 }
