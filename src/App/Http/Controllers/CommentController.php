@@ -32,7 +32,7 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param CommentRequest $request
+     * @param  CommentRequest  $request
      * @return JsonResponse
      */
     public function store(CommentRequest $request): JsonResponse
@@ -45,7 +45,7 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Comment $comment
+     * @param  Comment  $comment
      * @return JsonResponse
      */
     public function show(Comment $comment): JsonResponse
@@ -56,8 +56,8 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param CommentRequest $request
-     * @param Comment $comment
+     * @param  CommentRequest  $request
+     * @param  Comment  $comment
      * @return JsonResponse
      */
     public function update(CommentRequest $request, Comment $comment): JsonResponse
@@ -70,8 +70,9 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Comment $comment
+     * @param  Comment  $comment
      * @return JsonResponse
+     *
      * @throws Exception
      */
     public function destroy(Comment $comment): JsonResponse
