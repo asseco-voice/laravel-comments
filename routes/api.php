@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('api')->middleware('api')->group(function () {
-    Route::apiResource('comments', CommentController::class);
-});
+Route::prefix(config('asseco-comments.routes.prefix'))
+    ->middleware(config('asseco-comments.routes.middleware'))
+    ->group(function () {
+        Route::apiResource('comments', CommentController::class);
+    });
