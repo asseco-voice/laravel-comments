@@ -42,7 +42,7 @@ class CommentControllerTest extends TestCase
         $this
             ->postJson(route('comments.store'), $request)
             ->assertJsonFragment([
-                'id'   => 1,
+                'id' => 1,
                 'body' => $request['body'],
             ]);
 

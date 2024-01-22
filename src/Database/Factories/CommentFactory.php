@@ -21,17 +21,17 @@ class CommentFactory extends Factory
     public function definition()
     {
         $commType = env('ASEE_COMMENTABLE_TYPE', $this->faker->word);
-        
+
         $data = [
-            'body'             => $this->faker->sentence(),
+            'body' => $this->faker->sentence(),
             //'commentable_type' => 'App\\Random\\' . ucfirst($this->faker->word),
             'commentable_type' => $commType,
-            'commentable_id'   => $this->faker->randomNumber(),
+            'commentable_id' => $this->faker->randomNumber(),
         ];
 
         if (config('asseco-comments.migrations.uuid')) {
             $data = array_merge($data, [
-                'commentable_id'   => $this->faker->uuid(),
+                'commentable_id' => $this->faker->uuid(),
             ]);
         }
 
