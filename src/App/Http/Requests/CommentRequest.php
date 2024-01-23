@@ -27,9 +27,9 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body'             => 'required',
+            'body' => 'required',
             'commentable_type' => 'required|string',
-            'commentable_id'   => 'required',
+            'commentable_id' => 'required',
         ];
     }
 
