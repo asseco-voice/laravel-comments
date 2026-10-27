@@ -18,7 +18,7 @@ class CommentControllerTest extends TestCase
         $this->comment = app(Comment::class);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function can_fetch_all_comment_fields()
     {
         $this
@@ -34,7 +34,7 @@ class CommentControllerTest extends TestCase
         $this->assertCount(5, $this->comment::all());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function creates_comment()
     {
         $request = $this->comment::factory()->make()->toArray();
@@ -49,7 +49,7 @@ class CommentControllerTest extends TestCase
         $this->assertCount(1, $this->comment::all());
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function can_return_comment_by_id()
     {
         $this->comment::factory()->count(5)->create();
@@ -59,7 +59,7 @@ class CommentControllerTest extends TestCase
             ->assertJsonFragment(['id' => 3]);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function can_update_comment()
     {
         $comment = $this->comment::factory()->create();
@@ -77,7 +77,7 @@ class CommentControllerTest extends TestCase
         $this->assertEquals($request['body'], $comment->refresh()->body);
     }
 
-    /** @test */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function can_delete_comment()
     {
         $comment = $this->comment::factory()->create();
